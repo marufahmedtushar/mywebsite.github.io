@@ -125,6 +125,13 @@
                     </a>
                 </li>
 
+                <li class="sidebar-item">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link {{ 'skills' == request()->path() ? 'active' : '' }}" href="/skills" aria-expanded="false">
+                        <i class="mdi mdi-animation"></i>
+                        <span class="hide-menu">Skills</span>
+                    </a>
+                </li>
+
 
                 <li class="sidebar-item">
                     <a class="sidebar-link waves-effect waves-dark sidebar-link" href="form-basic.html" aria-expanded="false">

@@ -195,8 +195,8 @@
                         <img src='/storage/cover_images/{{$projects->image}}' class="card-img-top"  style="height: 200px;width: 200px;margin-left: 50px;" alt="...">
                     </div>
                     <div class="service-content">
-                        <h2 class="s-title"></h2>
-                        <h6 class="title">{{$projects->name}}</h6>
+                        <h2 class="s-title">{{$projects->project_language}}</h2>
+                        <h6 class="title">Project Name :{{$projects->name}}</h6>
                         <p class="s-description text-left">
                             {{$projects->desc}}
 
@@ -228,17 +228,20 @@
             </div>
         </div>
         <div class="row">
+            @foreach($skill as $skills)
 
             <div class="col-md-4">
                 <div class="service-box" style="height:325px;">
                     <div class="service-ico">
-                        <img src='' class="card-img-top"  style="height: 200px;width: 200px;margin-left: 50px;" alt="...">
+                        <img src='/storage/cover_images/{{$skills->image}}' class="card-img-top"  style="height: 200px;width: 200px;margin-left: 50px;" alt="...">
                     </div>
                     <div class="service-content">
-                        <h2 class="s-title"></h2>
+                        <h2 class="s-title text-center">{{$skills->name}}</h2>
+
                     </div>
                 </div>
             </div>
+            @endforeach
 
 
         </div>
@@ -247,28 +250,7 @@
 <!--/ Section Skill End /-->
 
 
-<!--/ Section Testimonials Star /-->
-<div class="testimonials paralax-mf bg-image">
-    <div class="overlay-mf"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div id="testimonial-mf" class="owl-carousel owl-theme">
-                    <div class="testimonial-box">
-                        <div class="author-test">
-                            <img src="img/testimonial-4.jpg" alt="" class="rounded-circle b-shadow-a">
-                            <span class="author">Marta Socrate</span>
-                        </div>
-                        <div class="content-test">
-                            <p><a href="/uploadproject" class="btn btn-primary" >Upload Project</a>
-                                <a href="/uploadproject" class="btn btn-primary" >Upload Skill</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+
 
 
 <!--/ Section others start /-->
