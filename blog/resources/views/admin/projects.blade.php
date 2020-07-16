@@ -33,7 +33,6 @@
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Project Name</th>
-                        <th scope="col">Desc</th>
                         <th scope="col">Edit</th>
                         <th scope="col">Delete</th>
                     </tr>
@@ -44,9 +43,15 @@
                         <tr>
                             <th scope="row">{{$project->id}}</th>
                             <td>{{$project->name}}</td>
-                            <td>{{$project->desc}}</td>
-                            <td><a href="" class=" btn btn-secondary">Edit</a></td>
-                            <td><a href="" class=" btn btn-danger">Delete</a></td>
+                            <td><a href="/project/{{$project->id}}/edit" class=" btn btn-secondary">Edit</a></td>
+                            <td>
+                                <form action="/projectdelete/{{$project->id}}" method="POST">
+                                    {{ csrf_field() }}
+                                    {{ method_field('delete') }}
+                                    <button class="btn btn-danger">Delete </button>
+                                </form>
+
+                            </td>
 
                         </tr>
 

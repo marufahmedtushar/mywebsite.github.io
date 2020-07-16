@@ -21,10 +21,7 @@ use Illuminate\Support\Facades\Route;
 Route::group(['middleware' => ['auth','admin']],function() {
 
 
-    Route::get('/dashboard', function () {
-        return view('admin.dashboard');
-    });
-
+    Route::get('/dashboard','AdminController@dashboard');
     Route::get('/users','AdminController@users');
     Route::get('/projects','AdminController@projects');
     Route::get('/skills','AdminController@skills');
@@ -32,6 +29,10 @@ Route::group(['middleware' => ['auth','admin']],function() {
     Route::get('/uploadskill','AdminController@uploadskill');
     Route::put('/projectupload','AdminController@store');
     Route::put('/skillupload','AdminController@save');
+    Route::put('/projectedit/{id}','AdminController@updateproject');
+    Route::put('/projectedit/{id}/edit','AdminController@projectedit');
+    Route::delete('/projectdelete/{id}','AdminController@projectdelete');
+    Route::delete('/skilldelete/{id}','AdminController@skilldelete');
 
 });
 

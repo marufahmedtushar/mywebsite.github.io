@@ -1,6 +1,8 @@
 @extends('admin.master')
 @section('title','Admin | Skills')
 
+
+@section('header','My Skills')
 @section('content')
 
     @if (session('status'))
@@ -29,6 +31,8 @@
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Skill Name</th>
+                            <th scope="col">Edit</th>
+                            <th scope="col">Delete</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -38,7 +42,13 @@
                                 <th scope="row">{{$skill->id}}</th>
                                 <td>{{$skill->name}}</td>
                                 <td><a href="" class=" btn btn-secondary">Edit</a></td>
-                                <td><a href="" class=" btn btn-danger">Delete</a></td>
+                                <td>
+                                    <form action="/skilldelete/{{$skill->id}}" method="POST">
+                                        {{ csrf_field() }}
+                                        {{ method_field('delete') }}
+                                        <button class="btn btn-danger">Delete </button>
+                                    </form>
+                                </td>
 
                             </tr>
 

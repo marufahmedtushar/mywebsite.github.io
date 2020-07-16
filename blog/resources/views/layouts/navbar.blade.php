@@ -114,7 +114,7 @@
                 <li class="sidebar-item">
                     <a class="sidebar-link waves-effect waves-dark sidebar-link {{ 'users' == request()->path() ? 'active' : '' }}" href="/users" aria-expanded="false">
                         <i class="mdi mdi-account-network"></i>
-                        <span class="hide-menu">Profile</span>
+                        <span class="hide-menu">Users</span>
                     </a>
                 </li>
 
@@ -127,7 +127,7 @@
 
                 <li class="sidebar-item">
                     <a class="sidebar-link waves-effect waves-dark sidebar-link {{ 'skills' == request()->path() ? 'active' : '' }}" href="/skills" aria-expanded="false">
-                        <i class="mdi mdi-animation"></i>
+                        <i class="mdi mdi-lightbulb-on"></i>
                         <span class="hide-menu">Skills</span>
                     </a>
                 </li>
