@@ -61,9 +61,8 @@ class AdminController extends Controller
 
     }
 
-    public function projectedit()
-    {
-        $project = MyProjects::all();
+    public function projectedit($id){
+        $project = MyProjects::find($id);
         return view('admin.edit')->with('project',$project);
 
     }
@@ -173,7 +172,7 @@ class AdminController extends Controller
     }
 
 
-    public function updateproject(Request $request){
+    public function updateproject(Request $request,$id){
 
         $this->validate($request,[
             'name' => 'required',
@@ -199,7 +198,7 @@ class AdminController extends Controller
         }
 
 
-        $projecct = new MyProjects;
+        $projecct = MyProjects::find($id);
         $projecct->name = $request->input('name');
         $projecct->desc = $request->input('desc');
         $projecct->project_language = $request->input('language');

@@ -36,7 +36,7 @@
 
                                     <div class="form-group">
                                         <label>Desc of Project :</label>
-                                        <textarea type="text" name="desc" class="form-control" value ="{{$project->desc}}" placeholder="Body of Post" id="exampleFormControlTextarea1" rows="4"></textarea>
+                                        <input type="text" name="language"class="form-control" value="{{$project->desc}}"  placeholder="Description of Project">
                                     </div>
 
                                     <div class="form-group">

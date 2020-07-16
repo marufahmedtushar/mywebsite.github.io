@@ -30,9 +30,9 @@ Route::group(['middleware' => ['auth','admin']],function() {
     Route::put('/projectupload','AdminController@store');
     Route::put('/skillupload','AdminController@save');
     Route::put('/projectedit/{id}','AdminController@updateproject');
-    Route::put('/projectedit/{id}/edit','AdminController@projectedit');
     Route::delete('/projectdelete/{id}','AdminController@projectdelete');
     Route::delete('/skilldelete/{id}','AdminController@skilldelete');
+    Route::get('/project/{id}/edit','AdminController@projectedit');
 
 });
 
