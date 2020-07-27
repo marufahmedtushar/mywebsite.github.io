@@ -9,6 +9,7 @@ use Intervention\Image\Facades\Image;
 use App\MyProjects;
 use App\User;
 use App\Skills;
+use App\Contact;
 class AdminController extends Controller
 {
     public function dashboard()
@@ -16,10 +17,12 @@ class AdminController extends Controller
 
         $totalproject = MyProjects::count();
         $totalskill = Skills::count();
+        $totalcontact = Contact::count();
 
         return view('admin.dashboard',[
             'totalproject'=>$totalproject,
-            'totalskill'=>$totalskill
+            'totalskill'=>$totalskill,
+            'totalcontact'=>$totalcontact,
         ]);
 
     }
@@ -61,11 +64,7 @@ class AdminController extends Controller
 
     }
 
-    public function projectedit($id){
-        $project = MyProjects::find($id);
-        return view('admin.edit')->with('project',$project);
 
-    }
 
     public function store(Request $request){
 
@@ -172,12 +171,19 @@ class AdminController extends Controller
     }
 
 
+    public function projectedit($id){
+        $project = MyProjects::findOrFail($id);
+        return view('admin.edit')->with('project',$project);
+
+    }
+
+
     public function updateproject(Request $request,$id){
 
         $this->validate($request,[
             'name' => 'required',
-            'language' => 'required',
             'desc' => 'required',
+            'language' => 'required',
         ]);
 
         //file upload
@@ -198,7 +204,7 @@ class AdminController extends Controller
         }
 
 
-        $projecct = MyProjects::find($id);
+        $projecct = MyProjects::findOrFail($id);
         $projecct->name = $request->input('name');
         $projecct->desc = $request->input('desc');
         $projecct->project_language = $request->input('language');
@@ -206,8 +212,28 @@ class AdminController extends Controller
             $projecct->image = $fileNameToStore;
         }
         $projecct->save();
-        return redirect('/projects')->with('status','post created');
+        return redirect('/projects')->with('status','post updated');
     }
+
+
+    public function contactlist()
+    {
+        $contacts = Contact::all();
+        return view('admin.contact')->with('contacts',$contacts);
+
+    }
+
+    public function contactview($id){
+        $contact = Contact::findOrFail($id);
+        return view('admin.contactview')->with('contact',$contact);
+
+    }
+
+
+
+
+
+
 
 
 }

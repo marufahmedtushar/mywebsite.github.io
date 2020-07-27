@@ -25,17 +25,21 @@ Route::group(['middleware' => ['auth','admin']],function() {
     Route::get('/users','AdminController@users');
     Route::get('/projects','AdminController@projects');
     Route::get('/skills','AdminController@skills');
+    Route::get('/contact','AdminController@contactlist');
     Route::get('/uploadproject','AdminController@uploadproject');
     Route::get('/uploadskill','AdminController@uploadskill');
     Route::put('/projectupload','AdminController@store');
     Route::put('/skillupload','AdminController@save');
-    Route::put('/projectedit/{id}','AdminController@updateproject');
+    Route::get('/project/{id}/edit','AdminController@projectedit');
+    Route::put('/update/{id}','AdminController@updateproject');
     Route::delete('/projectdelete/{id}','AdminController@projectdelete');
     Route::delete('/skilldelete/{id}','AdminController@skilldelete');
-    Route::get('/project/{id}/edit','AdminController@projectedit');
+    Route::get('/contact/{id}','AdminController@contactview');
+
 
 });
 
 Auth::routes();
 
 Route::get('/','IndexController@index');
+Route::post('/contact','IndexController@contact');

@@ -39,16 +39,20 @@
 
                         @foreach($skills as $skill)
                             <tr>
+                                <input type="hidden" class="delete" value="{{$skill->id}}">
                                 <th scope="row">{{$skill->id}}</th>
                                 <td>{{$skill->name}}</td>
                                 <td><a href="" class=" btn btn-secondary">Edit</a></td>
                                 <td>
-                                    <form action="/skilldelete/{{$skill->id}}" method="POST">
-                                        {{ csrf_field() }}
-                                        {{ method_field('delete') }}
-                                        <button class="btn btn-danger">Delete </button>
-                                    </form>
+
+                                                    <form action="/skilldelete/{{$skill->id}}" method="POST">
+                                                        {{ csrf_field() }}
+                                                        {{ method_field('delete') }}
+                                                        <button class="btn btn-danger">Delete </button>
+                                                    </form>
+
                                 </td>
+
 
                             </tr>
 
@@ -74,3 +78,31 @@
 
 
 @endsection
+
+{{--@section('scripts')--}}
+
+{{--    <script>--}}
+{{--        $(document).ready(function () {--}}
+
+{{--            function showModal(delete_id){--}}
+{{--                $('#deletebtn .delete_id').html(delete_id);--}}
+{{--                $('#deletebtn').modal('show')--}}
+{{--            }--}}
+
+{{--            $( '.deletebtn' ).click(function() {--}}
+
+
+
+
+{{--                var delete_id = $(this).closest('tr').find('.delete').val();--}}
+
+{{--                showModal(delete_id);--}}
+{{--            });--}}
+{{--        });--}}
+{{--    </script>--}}
+
+
+
+
+
+{{--@endsection--}}

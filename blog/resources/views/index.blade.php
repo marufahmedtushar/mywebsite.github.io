@@ -192,7 +192,7 @@
             <div class="col-md-4">
                 <div class="service-box">
                     <div class="service-ico">
-                        <img src='/storage/cover_images/{{$projects->image}}' class="card-img-top"  style="height: 200px;width: 200px;margin-left: 50px;" alt="...">
+                        <img src='/storage/cover_images/{{$projects->image}}' class="card-img"  style="height: 150px;width: 150px;margin-left: 80px;" alt="...">
                     </div>
                     <div class="service-content">
                         <h2 class="s-title">{{$projects->project_language}}</h2>
@@ -347,7 +347,8 @@
                                     </h5>
                                 </div>
                                 <div>
-                                    <form action=" "  method="post">{% csrf_token %}
+                                    <form action="/contact"  method="post">
+                                        {{ csrf_field() }}
 
                                         <div class="row">
                                             <div class="col-md-12 mb-3">
