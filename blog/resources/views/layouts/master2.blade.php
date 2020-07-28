@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('../../admin/assets/images/favicon.png')}}">
+    <link href="{{ asset('img/img8.ico')}} " rel="shortcut icon">
     <title>@yield('title')</title>
     <!-- Custom CSS -->
     <link href="{{ asset('../../admin/assets/libs/chartist/dist/chartist.min.css')}}" rel="stylesheet">

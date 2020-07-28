@@ -15,9 +15,10 @@ use Illuminate\Support\Facades\Route;
 
 
 
-
-
-
+Route::group(['middleware' => ['auth','user']],function() {
+Route::get('/','IndexController@index');
+Route::get('/home','HomeController@index');
+});
 Route::group(['middleware' => ['auth','admin']],function() {
 
 
@@ -35,6 +36,7 @@ Route::group(['middleware' => ['auth','admin']],function() {
     Route::delete('/projectdelete/{id}','AdminController@projectdelete');
     Route::delete('/skilldelete/{id}','AdminController@skilldelete');
     Route::get('/contact/{id}','AdminController@contactview');
+    Route::delete('/contactdelete/{id}','AdminController@contactdelete');
 
 
 });

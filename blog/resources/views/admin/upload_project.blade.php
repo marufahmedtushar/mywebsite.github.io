@@ -1,4 +1,4 @@
-@extends('admin.master')
+@extends('layouts.master2')
 @section('title','Admin | Upload Project')
 
 @section('content')

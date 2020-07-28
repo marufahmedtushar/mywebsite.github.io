@@ -18,11 +18,13 @@ class AdminController extends Controller
         $totalproject = MyProjects::count();
         $totalskill = Skills::count();
         $totalcontact = Contact::count();
+        $totaluser = User::count();
 
         return view('admin.dashboard',[
             'totalproject'=>$totalproject,
             'totalskill'=>$totalskill,
             'totalcontact'=>$totalcontact,
+            'totaluser'=>$totaluser,
         ]);
 
     }
@@ -226,6 +228,16 @@ class AdminController extends Controller
     public function contactview($id){
         $contact = Contact::findOrFail($id);
         return view('admin.contactview')->with('contact',$contact);
+
+    }
+
+
+    public function contactdelete($id)
+    {
+
+        $contact = Contact::find($id);
+        $contact->delete();
+        return redirect('/contact')->with('status','Contact is Deleted Sucessfully');
 
     }
 

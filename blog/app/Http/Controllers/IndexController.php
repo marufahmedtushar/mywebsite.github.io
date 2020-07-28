@@ -32,6 +32,7 @@ class IndexController extends Controller
         return redirect('/')->with('status','post created');
     }
 
+   
 
 
 

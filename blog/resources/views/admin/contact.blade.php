@@ -9,6 +9,19 @@
 
 
 
+    @if (session('status'))
+        <div class="alert alert-success" role="alert">
+            {{ session('status') }}
+        </div>
+    @endif
+
+    @if (session('error'))
+        <div class="alert alert-danger" role="alert">
+            {{ session('error') }}
+        </div>
+    @endif
+
+
     <div class="row">
 
         <div class="col-12">
@@ -31,7 +44,7 @@
                                 <td>{{$contact->name}}</td>
                                 <td><a href="/contact/{{$contact->id}}" class=" btn btn-secondary">View</a></td>
                                 <td>
-                                    <form action="" method="POST">
+                                    <form action="/contactdelete/{{$contact->id}}" method="POST">
                                         {{ csrf_field() }}
                                         {{ method_field('delete') }}
                                         <button class="btn btn-danger">Delete </button>

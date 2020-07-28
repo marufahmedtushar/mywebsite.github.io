@@ -29,6 +29,15 @@
         </div>
     </div>
 
+    <div class="row">
+        <div class="col-md-4 ">
+            <div class="card-body jumbotron" >
+                <h3 class="card-title text-center">Total Users </h3>
+                <h3 class="card-title text-center">{{$totaluser}}</h3>
+            </div>
+        </div>
+    </div>
+
 
 
 
