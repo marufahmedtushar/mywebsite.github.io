@@ -1,5 +1,5 @@
 @extends('admin.master')
-@section('title','Admin | Skills')
+@section('title','My Web | Admin | Skills')
 
 
 @section('header','My Skills')
@@ -42,7 +42,7 @@
                                 <input type="hidden" class="delete" value="{{$skill->id}}">
                                 <th scope="row">{{$skill->id}}</th>
                                 <td>{{$skill->name}}</td>
-                                <td><a href="" class=" btn btn-secondary">Edit</a></td>
+                                <td><a href="/skill/{{$skill->id}}/edit" class=" btn btn-secondary">Edit</a></td>
                                 <td>
 
                                                     <form action="/skilldelete/{{$skill->id}}" method="POST">

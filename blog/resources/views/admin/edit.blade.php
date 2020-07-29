@@ -1,5 +1,5 @@
 @extends('layouts.master2')
-@section('title','Admin | Edit Project')
+@section('title','My Web | Admin | Edit Project')
 
 @section('content')
 

@@ -1,5 +1,5 @@
 @extends('layouts.master2')
-@section('title','Admin | Upload Project')
+@section('title','My Web | Admin | Upload Project')
 
 @section('content')
 
@@ -50,6 +50,7 @@
 
 
                                     <button class="btn btn-success">Submit</button>
+                                    <a href="/projects" class="btn btn-secondary">Back</a>
 
                                 </form>
 

@@ -218,6 +218,48 @@ class AdminController extends Controller
     }
 
 
+    public function skilledit($id){
+        $skill = Skills::findOrFail($id);
+        return view('admin.skilledit')->with('skill',$skill);
+
+    }
+
+
+    public function updateskill(Request $request,$id){
+
+        $this->validate($request,[
+            'name' => 'required',
+
+        ]);
+
+        //file upload
+        //file upload
+        if($request->hasFile('image')){
+            //get file name  with the  extension
+            $filenameWithExt = $request->file('image')->getClientOriginalName();
+            //get just file name
+            $filename = pathinfo($filenameWithExt,PATHINFO_FILENAME);
+            //get just ext
+            $extension = $request->file('image')->getClientOriginalExtension();
+            //file name to  store
+            $fileNameToStore = $filename.'_'.time().'.'.$extension;
+            //upload image
+            $path = $request->file('image')->storeAs('public/cover_images',$fileNameToStore);
+
+
+        }
+
+
+        $skill = Skills::findOrFail($id);
+        $skill->name = $request->input('name');
+        if($request->hasFile('image')){
+            $skill->image = $fileNameToStore;
+        }
+        $skill->save();
+        return redirect('/skills')->with('status','skill updated');
+    }
+
+
     public function contactlist()
     {
         $contacts = Contact::all();

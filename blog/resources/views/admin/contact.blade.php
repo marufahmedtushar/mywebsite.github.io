@@ -1,5 +1,5 @@
 @extends('admin.master')
-@section('title','Myweb | Contacts')
+@section('title','My Web | Admin | Contacts')
 
 
 

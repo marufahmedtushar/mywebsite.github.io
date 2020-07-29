@@ -33,6 +33,10 @@ Route::group(['middleware' => ['auth','admin']],function() {
     Route::put('/skillupload','AdminController@save');
     Route::get('/project/{id}/edit','AdminController@projectedit');
     Route::put('/update/{id}','AdminController@updateproject');
+
+    Route::get('/skill/{id}/edit','AdminController@skilledit');
+    Route::put('/updateskill/{id}','AdminController@updateskill');
+
     Route::delete('/projectdelete/{id}','AdminController@projectdelete');
     Route::delete('/skilldelete/{id}','AdminController@skilldelete');
     Route::get('/contact/{id}','AdminController@contactview');
