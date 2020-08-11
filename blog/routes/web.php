@@ -42,6 +42,12 @@ Route::group(['middleware' => ['auth','admin']],function() {
     Route::get('/contact/{id}','AdminController@contactview');
     Route::delete('/contactdelete/{id}','AdminController@contactdelete');
 
+    Route::get('/userroleedit/{id}','AdminController@userroleedit');
+    Route::put('/userroleupdate/{id}','AdminController@userroleupdate');
+
+
+    Route::delete('/userdelete/{id}','AdminController@userdelete');
+
 
 });
 
@@ -49,3 +55,9 @@ Auth::routes();
 
 Route::get('/','IndexController@index');
 Route::post('/contact','IndexController@contact');
+Route::get('/register-new', function () {
+    return view('newregister');
+});
+Route::get('/login-new', function () {
+    return view('newlogin');
+});

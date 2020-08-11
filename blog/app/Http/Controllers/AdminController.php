@@ -284,6 +284,30 @@ class AdminController extends Controller
     }
 
 
+    public function userroleedit(Request $request,$id){
+        $users = User::findOrFail($id);
+        return view('admin.useredit')->with('users',$users);
+
+    }
+
+    public function userroleupdate(Request $request,$id){
+        $users = User::find($id);
+        $users->usertype = $request->input('usertype');
+        $users->update();
+
+        return redirect('/users')->with('status','User role is updated');
+    }
+
+    public function userdelete($id)
+    {
+
+        $user = User::find($id);
+        $user->delete();
+        return redirect('/users')->with('status','User is Deleted Sucessfully');
+
+    }
+
+
 
 
 

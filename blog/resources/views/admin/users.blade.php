@@ -13,14 +13,25 @@
 
     <div class="col-12">
         <div class="card">
+            @if (session('status'))
+            <div class="alert alert-success" role="alert">
+                {{ session('status') }}
+            </div>
+        @endif
+
+        @if (session('error'))
+            <div class="alert alert-danger" role="alert">
+                {{ session('error') }}
+            </div>
+        @endif
             <div class="table-responsive">
                 <table class="table">
                     <thead class="thead-light">
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col"> Name</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">User Type</th>
+                        <th> Name</th>
+                        <th>Email</th>
+                        <th>User Type</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -31,6 +42,13 @@
                         <td>{{$user->name}}</td>
                         <td>{{$user->email}}</td>
                         <td>{{$user->usertype}}</td>
+                        <td><a class="btn btn-secondary btn-sm" href="/userroleedit/{{$user->id}}">Edit</a></td>
+                        <td><form action="/userdelete/{{$user->id}}" method="POST">
+                                        {{ csrf_field() }}
+                                        {{ method_field('delete') }}
+                                        <button class="btn btn-danger btn-sm">Delete </button>
+                            </form>
+                        </td>
                     </tr>
 
                     @endforeach

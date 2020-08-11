@@ -71,11 +71,11 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="btn btn-primary" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="btn btn-primary" href="/login-new">{{ __('Login') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="btn btn-primary" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="btn btn-primary" href="/register-new">{{ __('Register') }}</a>
                                 </li>
                             @endif
                         @else
@@ -397,7 +397,7 @@
                                         <li><a href="https://web.facebook.com/marufahmedtushar471"><span class="ico-circle"><i class="ion-social-facebook"></i></span></a></li>
                                         <li><a href="https://www.instagram.com/ahmedtushar471/?hl=en"><span class="ico-circle"><i class="ion-social-instagram"></i></span></a></li>
                                         <li><a href="https://twitter.com/maruf_tushar"><span class="ico-circle"><i class="ion-social-twitter"></i></span></a></li>
-                                        <li><a href="https://www.linkedin.com/in/maruf-ahmed-bb3bbb18a/"><span class="ico-circle"><i class="ion-social-linkedin-outline"></i></span></a></li>
+                                        <li><a href="https://www.linkedin.com/in/maruf-ahmed-tushar/"><span class="ico-circle"><i class="ion-social-linkedin-outline" target="blank"></i></span></a></li>
                                     </ul>
                                 </div>
                             </div>
