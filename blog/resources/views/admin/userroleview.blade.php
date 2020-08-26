@@ -1,9 +1,15 @@
+
+
+
+
+
+
 @extends('layouts.master2')
-@section('title','My Web | Admin | Edit User Roles')
-@section('header','Edit User Roles')
+@section('title','My Web | Admin | View User Details ')
+
+
+@section('header','View User Details')
 @section('content')
-
-
 
 
 
@@ -18,7 +24,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <center class="m-t-30"><i class="fas fa-user fa-5x"></i>
-                                    <h4 class="card-title m-t-10">Id : {{$users->id}}</h4>
+                                    <h4 class="card-title m-t-10">User Id : {{$users->id}}</h4>
                                     <h4 class="card-title m-t-10">User Type : {{$users->usertype}}</h4>
                                 </center>
                             </div>
@@ -31,10 +37,7 @@
                     <div class="col-lg-8 col-xlg-9 col-md-7">
                         <div class="card">
                             <div class="card-body">
-                                
-                                    <form class="form-horizontal form-material" action="/userroleupdate/{{$users->id}}" method="POST">
-                                    {{ csrf_field() }}
-                                    {{ method_field('PUT') }}
+                                <form class="form-horizontal form-material">
 
                                     <div class="form-group">
                                         <label class="col-md-12">Full Name</label>
@@ -55,20 +58,6 @@
                                             <input type="text" value="{{$users->created_at->diffForHumans()}}" class="form-control form-control-line">
                                         </div>
                                     </div>
-
-
-                                    <div class="form-group">
-                                        <label>User Type: </label>
-                                        <select class="form-control" name="usertype"  id="exampleFormControlSelect1">
-                                            <option>admin</option>
-                                            <option>user</option>
-                                            <option> </option>
-                                        </select>
-                                    </div>
-
-
-                                    <button class="btn btn-success">Submit</button>
-                                    <a href="/users" class="btn btn-secondary">Back</a>
                                     
                                     
                                     
@@ -91,4 +80,27 @@
                 <!-- ============================================================== -->
             </div>
 
+
+
+
+
+
+
+
+
+
+
+
+    <div class="row">
+
+
+        <div class="col-12">
+
+            <a href="/users" class="btn btn-secondary">Back</a>
+
+        </div>
+    </div>
+
+
 @endsection
+

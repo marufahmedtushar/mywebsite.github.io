@@ -30,8 +30,6 @@
                     <tr>
                         <th scope="col">#</th>
                         <th> Name</th>
-                        <th>Email</th>
-                        <th>User Type</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -40,13 +38,12 @@
                     <tr>
                         <th scope="row">{{$user->id}}</th>
                         <td>{{$user->name}}</td>
-                        <td>{{$user->email}}</td>
-                        <td>{{$user->usertype}}</td>
-                        <td><a class="btn btn-secondary btn-sm" href="/userroleedit/{{$user->id}}">Edit</a></td>
+                        <td><a class="btn btn-success" href="/userroleview/{{$user->id}}">View Details</a></td>
+                        <td><a class="btn btn-secondary" href="/userroleedit/{{$user->id}}">Edit</a></td>
                         <td><form action="/userdelete/{{$user->id}}" method="POST">
                                         {{ csrf_field() }}
                                         {{ method_field('delete') }}
-                                        <button class="btn btn-danger btn-sm">Delete </button>
+                                        <button class="btn btn-danger">Delete </button>
                             </form>
                         </td>
                     </tr>
@@ -56,6 +53,10 @@
 
                     </tbody>
                 </table>
+                <div class="container">
+                                 {{$users->links()}}
+
+                </div>
             </div>
         </div>
     </div>

@@ -6,6 +6,7 @@ use App\Projects;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\DB;
 use App\MyProjects;
 use App\User;
 use App\Skills;
@@ -31,21 +32,21 @@ class AdminController extends Controller
 
     public function users()
     {
-        $users = User::all();
+        $users =  DB::table('users')-> orderBy('created_at', 'desc') -> paginate(5);
         return view('admin.users')->with('users',$users);
 
     }
 
     public function projects()
     {
-        $projects = MyProjects::all();
+        $projects = DB::table('myprojects')-> orderBy('created_at', 'desc') -> paginate(5);
         return view('admin.projects')->with('projects',$projects);
 
     }
 
     public function skills()
     {
-        $skills = Skills::all();
+        $skills = DB::table('skills')-> orderBy('created_at', 'desc') -> paginate(5);
         return view('admin.skills')->with('skills',$skills);
 
     }
@@ -262,7 +263,7 @@ class AdminController extends Controller
 
     public function contactlist()
     {
-        $contacts = Contact::all();
+        $contacts = DB::table('contact_list')-> orderBy('created_at', 'desc')->paginate(5);
         return view('admin.contact')->with('contacts',$contacts);
 
     }
@@ -287,6 +288,13 @@ class AdminController extends Controller
     public function userroleedit(Request $request,$id){
         $users = User::findOrFail($id);
         return view('admin.useredit')->with('users',$users);
+
+    }
+
+
+    public function userroleview($id){
+        $users = User::findOrFail($id);
+        return view('admin.userroleview')->with('users',$users);
 
     }
 

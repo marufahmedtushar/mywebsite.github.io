@@ -23,30 +23,39 @@ Route::group(['middleware' => ['auth','admin']],function() {
 
 
     Route::get('/dashboard','AdminController@dashboard');
+
     Route::get('/users','AdminController@users');
+    Route::get('/userroleedit/{id}','AdminController@userroleedit');
+    Route::get('/userroleview/{id}','AdminController@userroleview');
+    Route::put('/userroleupdate/{id}','AdminController@userroleupdate');
+    Route::delete('/userdelete/{id}','AdminController@userdelete');
+
+
     Route::get('/projects','AdminController@projects');
-    Route::get('/skills','AdminController@skills');
-    Route::get('/contact','AdminController@contactlist');
     Route::get('/uploadproject','AdminController@uploadproject');
-    Route::get('/uploadskill','AdminController@uploadskill');
     Route::put('/projectupload','AdminController@store');
-    Route::put('/skillupload','AdminController@save');
     Route::get('/project/{id}/edit','AdminController@projectedit');
     Route::put('/update/{id}','AdminController@updateproject');
+    Route::delete('/projectdelete/{id}','AdminController@projectdelete');
 
+
+    Route::get('/skills','AdminController@skills');
+    Route::put('/skillupload','AdminController@save');
+    Route::get('/uploadskill','AdminController@uploadskill');
     Route::get('/skill/{id}/edit','AdminController@skilledit');
     Route::put('/updateskill/{id}','AdminController@updateskill');
-
-    Route::delete('/projectdelete/{id}','AdminController@projectdelete');
     Route::delete('/skilldelete/{id}','AdminController@skilldelete');
+
+    
+    
+    Route::get('/contact','AdminController@contactlist');
     Route::get('/contact/{id}','AdminController@contactview');
     Route::delete('/contactdelete/{id}','AdminController@contactdelete');
 
-    Route::get('/userroleedit/{id}','AdminController@userroleedit');
-    Route::put('/userroleupdate/{id}','AdminController@userroleupdate');
+   
 
 
-    Route::delete('/userdelete/{id}','AdminController@userdelete');
+    
 
 
 });

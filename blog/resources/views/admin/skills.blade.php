@@ -65,6 +65,11 @@
 
                     </table>
 
+                    <div class="container">
+                                 {{$skills->links()}}
+
+                    </div>
+
                 </div>
 
 

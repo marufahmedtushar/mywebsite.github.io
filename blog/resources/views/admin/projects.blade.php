@@ -64,6 +64,11 @@
 
                 </table>
 
+                <div class="container">
+                                 {{$projects->links()}}
+
+                </div>
+
             </div>
 
 

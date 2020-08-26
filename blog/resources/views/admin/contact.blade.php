@@ -62,6 +62,10 @@
 
 
                     </table>
+                    <div class="container">
+                                 {{$contacts->links()}}
+
+                </div>
 
                 </div>
 

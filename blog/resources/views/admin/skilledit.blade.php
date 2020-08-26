@@ -1,21 +1,38 @@
 @extends('layouts.master2')
 @section('title','My Web | Admin | Edit Skill')
 
+
+
+@section('header','Edit Skill')
 @section('content')
 
 
-    <div class="container my-3">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="text-center">Edit Skill</h3>
+    
+
+
+    <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+                <!-- Row -->
+                <div class="row">
+                    <!-- Column -->
+                    <div class="col-lg-4 col-xlg-3 col-md-5">
+                        <div class="card">
+                            
+                            <div class="card-body">
+                                <center class="m-t-30"> <img src="/storage/cover_images/{{$skill->image}}"  width="150" />
+                                </center>
+                            </div>
+                            
+                            
+                        </div>
                     </div>
-
-
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-12">
+                    <!-- Column -->
+                    <!-- Column -->
+                    <div class="col-lg-8 col-xlg-9 col-md-7">
+                        <div class="card">
+                            <div class="card-body">
                                 <form action="/updateskill/{{$skill->id}}" method="POST" enctype="multipart/form-data">
                                     {{ csrf_field() }}
                                     {{ method_field('PUT') }}
@@ -38,18 +55,10 @@
 
                                     <button class="btn btn-success">Submit</button>
                                     <a href="/skills" class="btn btn-secondary">Back</a>
-
-                                </form>
-
-
                             </div>
                         </div>
                     </div>
-
+                    <!-- Column -->
                 </div>
-            </div>
-
-        </div>
-    </div>
 
 @endsection

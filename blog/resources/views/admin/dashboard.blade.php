@@ -1,7 +1,7 @@
 @extends('admin.master')
 @section('title','My Web | Admin | Dashboard')
 
-
+@section('header','Dashboard')
 @section('content')
 
 

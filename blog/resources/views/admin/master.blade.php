@@ -65,9 +65,13 @@
         <!-- ============================================================== -->
         <div class="page-breadcrumb">
             <div class="row">
-                <div class="col-5 align-self-center">
-                    <h4 class="page-title">@yield('header')</h4>
+                <div class="col-6 align-self-center">
+                    <p class="page-title">@yield('header')
+                    <a class="btn btn-primary" href="/">Go To My Web</a>
+                    </p>
                 </div>
+
+                
 
             </div>
         </div>
